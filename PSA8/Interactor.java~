@@ -1,0 +1,70 @@
+import java.util.*;
+import java.awt.*;
+import java.lang.*;
+
+/** Don't forget your header comment. */
+public class Interactor
+{
+  public Critter closeCritter;
+  /** This method takes a Critter and a list of Critters.  It finds the 
+    * Critter from the list of Critters that c will interact with.  Usually
+    * this is the closest Critter in the list, but you might vary this slightly
+    * (See the PSA instructions).  Then it asks the Critter c to reactTo
+    * that Critter.  The Rectangle r is the bounds in which 
+    * the Critters must stay, and should be passed to the reactTo method.
+    */
+  public void interact(Critter c, ArrayList<Critter> cList, Rectangle r)
+  {
+    if (cList.size() < 2){
+      return;
+    }
+      double xOne = c.getX();
+      double yOne = c.getY();
+      double xTwo;
+      double yTwo;
+      double xDistance;
+      double yDistance;
+      double critterDistance;
+      double smallestDistance;
+      Critter check;
+      
+        check = cList.get(0);
+        closeCritter = check;
+        if(c == check){
+        check = cList.get(1);
+        closeCritter = check;
+        }
+        
+        xTwo = check.getX();
+        yTwo = check.getY();
+        
+        xDistance = xTwo - xOne;
+        yDistance = yTwo - yOne;
+        critterDistance = (xDistance*xDistance)+(yDistance*yDistance);
+        
+          smallestDistance = critterDistance;
+      
+      
+    for(int x = 0; x < cList.size(); x++){
+      if (c == cList.get(x)){
+        continue;
+      }
+        check = cList.get(x);
+        xTwo = check.getX();
+        yTwo = check.getY();
+        
+        xDistance = xTwo - xOne;
+        yDistance = yTwo - yOne;
+        critterDistance = (xDistance*xDistance)+(yDistance*yDistance);
+        
+        if (critterDistance < smallestDistance){
+          closeCritter = check;
+          smallestDistance = critterDistance;
+        }
+    
+    }
+    if (cList.size() > 1 ){
+    c.reactTo(closeCritter,r);
+    }
+  }
+}

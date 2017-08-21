@@ -1,0 +1,113 @@
+import java.awt.*;
+import javax.swing.*;
+
+
+public class Runner extends Critter
+{
+
+ //instance variables 
+public int xRelative;
+public int yRelative;
+
+//sets the variables the x and y positions for the Runner critter
+
+public Runner(int x, int y) {
+super(x,y);
+}
+
+
+public void reactTo( Critter c, Rectangle r ){
+
+  //if statement - if there is another critter
+  xRelative = (c.getX() - this.getX());
+  yRelative = (c.getY() - this.getY());
+  
+  if (xRelative > 0){
+    if (this.x < 7){
+    this.x = x+1;
+    }
+    
+    if(yRelative > 0) {
+      if(this.y < 7){
+      this.y = y +1;
+      }
+    this.x = x-1;
+    this.y = y-1;
+    }
+    if(yRelative < 0) {
+      if(this.y > r.getHeight() - 7){
+        this.y = y-1;
+      }
+    this.x = x-1;
+    this.y = y+1;
+    }
+    if(yRelative == 0) {
+    this.x = x-1;
+    this.y = y;
+    }
+  }
+  
+  if (xRelative < 0){
+    if (this.x > r.getWidth() - 7){
+    this.x = x-1;
+    }
+    
+    if(yRelative > 0) {
+      if(this.y < 7){
+        this.y = y +1;
+      }
+    this.x = x+1;
+    this.y = y-1;
+    }
+    if(yRelative < 0) {
+      if(this.y > r.getHeight() - 7){
+        this.y = y-1;
+      }
+    this.x = x+1;
+    this.y = y+1;
+    }
+    if(yRelative == 0) {
+    this.x = x+1;
+    this.y = y;
+    }
+  }
+  
+  if (xRelative == 0){
+    if(yRelative > 0) {
+      if(this.y < 7){
+        this.y = y +1;
+      }
+    this.x = x;
+    this.y = y-1;
+    }
+    if(yRelative < 0) {
+      if(this.y > r.getHeight() - 7){
+        this.y = y-1;
+      }
+    this.x = x;
+    this.y = y+1;
+    }
+    if(yRelative == 0) {
+    this.x = x;
+    this.y = y;
+    }
+  }
+
+}
+
+public void paint(Graphics g) {
+
+  
+Color green = new Color(0,255,0);
+  g.setColor(green);
+  g.fillRect(x-7,y-7,15,15);
+
+}
+
+
+
+}
+
+
+
+  

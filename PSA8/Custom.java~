@@ -1,0 +1,52 @@
+import java.awt.*;
+import javax.swing.*;
+import java.util.*;
+
+
+public class Custom extends Critter
+{
+  
+//instance variables 
+public int xRelative;
+public int yRelative;
+ 
+
+//sets the variables the x and y positions for the Custom critter
+  
+public Custom(int x, int y) {
+super(x,y);
+}
+
+
+public void reactTo( Critter c, Rectangle r ){
+
+  //if statement - if there is another Critter
+  xRelative = (c.getX() - this.getX());
+  yRelative = (c.getY() - this.getY());
+  int xMax = (int) r.getWidth() - 15;
+  int yMax = (int) r.getHeight() - 15;
+  
+  
+ java.util.Random randomMovement = new java.util.Random();
+ int randomNumX = randomMovement.nextInt(xMax);
+ int randomNumY = randomMovement.nextInt(yMax); 
+  
+    
+ if ((c.getX() == this.getX()) && (c.getY() == this.getY())){
+   this.x = randomNumX + 7;
+   this.y = randomNumY + 7;
+ }
+}
+
+
+
+public void paint(Graphics g) {
+
+
+Color yellow = new Color(0,255,255);
+  g.setColor(yellow);
+  g.fillOval(x-7,y-7,15,15);
+
+}
+
+}

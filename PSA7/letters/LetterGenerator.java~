@@ -1,0 +1,53 @@
+/* Name: Amit Nijjar A11489111
+ * PSA 7
+ * Date: 2/27/14
+ */
+
+import javax.swing.*;
+import javax.swing.event.*;
+
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class LetterGenerator extends JApplet {
+  // instance variables to reflect what is typed
+  private JLabel message;
+  private JTextField inputText;    
+  
+  /** The panel that will hold the graphical letters */
+  private JPanel canvas; 
+  /** The letter factory that generates the graphical letters */
+  private GraphicLetterFactory factory;
+  
+  /**
+   * Initialize the applet. Instantiate all the class variables.
+   * This is like the constructor for a normal class.
+   * You will want to add to this method.
+   */
+  public void init() {
+    System.out.println( "Initializing the applet" );
+    message = new JLabel("Type what you want in the text field below!");
+    message.setFont(newFont("SansSerif",Font.PLAIN,42);
+    inputText = new JTextField();
+                    ///this is where I left off***********************************************
+    canvas = new JPanel();
+  
+    // Initialize the letter factory.
+    factory = new GraphicLetterFactory();
+    
+    canvas.setLayout(new FlowLayout(FlowLayout.LEFT));
+  
+    // add everything, set the starting size.  This size will change when we set
+    // the size in the index.html file.
+    setLayout( new BorderLayout() );
+    this.setSize(new Dimension(700,500));
+    add( canvas, BorderLayout.CENTER );
+    
+    setVisible( true );
+
+  }
+
+  // You will want to add other methods here.
+ 
+}

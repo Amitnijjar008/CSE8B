@@ -1,0 +1,58 @@
+import java.awt.*;
+import javax.swing.*;
+import java.util.*;
+
+
+public class Random extends Critter
+{
+
+//instance variables 
+public int xRelative;
+public int yRelative;
+ 
+//sets the variables the x and y positions for the Random critter
+
+public Random(int x, int y) {
+super(x,y);
+}
+
+
+public void reactTo( Critter c, Rectangle r ){
+
+  //if statement - if there is another Critter
+  xRelative = (c.getX() - this.getX());
+  yRelative = (c.getY() - this.getY());
+ java.util.Random randomMovement = new java.util.Random();
+ int randomNumXPos = randomMovement.nextInt(5);
+ int randomNumYPos = randomMovement.nextInt(5); 
+ int randomNumXNeg = randomMovement.nextInt(5);
+ int randomNumYNeg = randomMovement.nextInt(5); 
+  
+ 
+ if (this.x < r.getWidth() - 11){
+    this.x = x+randomNumXPos; 
+ }
+ if (this.y < r.getHeight() - 11){
+    this.y = y+randomNumYPos;
+ }
+ if (this.x > 11){
+    this.x = x-randomNumXNeg; 
+ }
+ if (this.y > 11){
+    this.y = y-randomNumYNeg;
+ }
+}
+
+
+public void paint(Graphics g) {
+
+
+Color blue = new Color(0,0,255);
+  g.setColor(blue);
+  g.drawLine(x-7,y-7,x+7,y+7);
+  g.drawLine(x-7,y+7,x+7,y-7);
+}
+
+}
+
+  

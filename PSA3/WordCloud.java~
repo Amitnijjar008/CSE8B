@@ -1,0 +1,47 @@
+// Don't remove these lines.  They tell java where to find various classes
+// you will use.
+import java.util.*;
+import java.io.*;
+import javax.swing.*;
+import java.awt.*;
+
+/** Don't forget your comments */
+
+public class WordCloud
+{
+  // These are the two instance variables that you will use to keep 
+  // track of the unique words in the file and their counts
+  
+  /** An array of unique strings, to appear in the word cloud */
+  public String[] uniqueWords;
+  /** counts corresponding to the number of times each word in the 
+    * uniqueStrings array appeard in the original file.  These counts
+    * will be used to size the words in the word cloud.  */
+  public int[] counts;
+    
+  
+  public String[] getWordsFromFile( String filename ) throws IOException
+  {
+    // Complete this method
+    return new String[0];
+  }
+  
+    
+  public void setUniqueAndCounts( String[] words )
+  {
+    // Complete this method
+  }
+  
+  
+  public void displayWords()
+  {
+    // Complete this method
+  }
+  
+  public void makeCloud( String filename ) throws IOException
+  {
+    // Complete this method
+  }
+  
+  // You can (and should) add a main method here for testing
+}
